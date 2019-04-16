@@ -5,32 +5,37 @@
 \subsubsection{Precision}
 Precision is the percentage of positive identifications that were classified correctly.\newline
 \begin{equation}
+\small
     Precision\ =\ \frac{True\ Positives}{True\ Positives\ +\ False\ Positives}
 \end{equation}
-
+\normalsize
 \subsubsection{Recall}
 Recall is the percentage of all actual positives that were classified correctly.
+\small
 \begin{equation}
     Recall\ =\ \frac{True\ Positives}{True\ Positives\ +\ False\ Negatives}
 \end{equation}
-
+\normalsize
 \subsubsection{F1-Score}
 F1-Score is the harmonic mean of precision and recall.
+\small
 \begin{equation}
     F1-Score\ =\ 2 \times\ \frac{Precision\ \times\ Recall}{Precision\ +\ Recall}
 \end{equation}
-
+\normalsize
 \subsubsection{Accuracy}
 Accuracy is the percentage of the tweets that were classified correctly.
+\small
 \begin{equation}
     Accuracy\ =\ \frac{Number\ of\ Correct\ Predictions}{Total\ Number\ of\ Predictions}
 \end{equation}
+\normalsize
 
 \subsection{Classification Results and Analysis}
 
 \begin{table}[h!]
 \setlength{\tabcolsep}{3pt}
-\caption{Precision of Classifiers for different Feature Representations.}
+\caption{Precision of Classifiers and Feature Representations.}
 \label{Table:precision}
 \resizebox{\columnwidth}{!}{
 \begin{tabular}{cccccccc}
@@ -60,11 +65,11 @@ Accuracy is the percentage of the tweets that were classified correctly.
 \end{tabular}}
 \end{table}
 
-In terms of precision, QDA with unigram TF-IDF and no stop words performed best (Table ~\ref{Table:precision}). RF and SVM, both with unigram TF-IDF  were the two next best performing classifiers. Our results do not fully confirm or contradict the results of \cite{Rane2018}. \cite{Rane2018} found that RF achieved the highest precision score, followed by AB and SVM. They did not include QDA in their evaluation. Their precision scores are higher than ours for all the classifiers that they implemented. A likely reason for this is that they trained their classifiers on a much larger dataset, a total of 14640 tweets, while our classifiers were trained on a smaller set of 3115 tweets. Supervised machine learning methods tend to perform the best on large datasets.
+In terms of precision, QDA with unigram TF-IDF (no stop words) performed best (Table ~\ref{Table:precision}). RF and SVM, both with unigram TF-IDF  were the two next best performing classifiers. Our results do not fully confirm or contradict the results of \cite{Rane2018}. \cite{Rane2018} found that RF achieved the highest precision score, followed by AB and SVM. Their precision scores are higher for all the classifiers they implemented. A likely reason for this is that they trained their classifiers on a larger dataset (14640 tweets), while our classifiers were trained on a smaller set (3115 tweets). Supervised machine learning methods tend to perform the best on large datasets.
 
 \begin{table}[h!]
 \setlength{\tabcolsep}{3pt}
-\caption{Recall of Classifiers for different Feature Representations.}
+\caption{Recall of Classifiers and Feature Representations.}
 \label{Table:recall}
 \resizebox{\columnwidth}{!}{
 \begin{tabular}{cccccccc}
@@ -94,11 +99,11 @@ In terms of precision, QDA with unigram TF-IDF and no stop words performed best 
 \end{tabular}}
 \end{table}
 
-SVM was the best performing classifier with regard to recall (Table ~\ref{Table:recall}), with unigram TF-IDF and bigram TF-IDF performing equally well. This again partly agrees with \cite{Rane2018}, who found that SVM was their second best performing classifier in terms of recall, with RF again coming out on top. Notice that QDA which performed the best in precision performs pretty poorly in terms of recall. This is a common issue and is why we have also evaluated the classifiers with the f1-score, which conveys the balance between precision and recall.
+SVM was performed best with regard to recall (Table ~\ref{Table:recall}), with unigram TF-IDF and bigram TF-IDF performing equally well. This again partly agrees with \cite{Rane2018}, who found that SVM was their second best performing classifier in terms of recall, with RF again coming out on top. Notice that QDA which performed the best in precision performs pretty poorly in terms of recall. This is a common issue and is why we have also evaluated the classifiers with f1-score, which conveys the balance between precision and recall.
 
 \begin{table}[h!]
 \setlength{\tabcolsep}{3pt}
-\caption{F1-Score of Classifiers for different Feature Representations.}
+\caption{F1-Score of Classifiers and Feature Representations.}
 \label{Table:f1score}
 \resizebox{\columnwidth}{!}{
 \begin{tabular}{cccccccc}
@@ -128,11 +133,11 @@ SVM was the best performing classifier with regard to recall (Table ~\ref{Table:
 \end{tabular}}
 \end{table}
 
-SVM achieved the highest f1-score (Table ~\ref{Table:f1score}), with unigram and bigram TF-IDF again performing equally well. This high f1-score indicates that the SVM Classifier has a good balance of precision and recall. This confirms the results of both \cite{Raithi2018} and \cite{Rane2018} who both found in their studies that SVM performed well in classifying tweets. However, it contradicts the results of \cite{Berm2010} who found that MNB performed better than SVM on tweets. In our experiments, SVM outperformed MNB in all metrics. This difference in results could be due to the increase in character count, from 140 to 280, introduced by Twitter in 2017. \cite{Berm2010} found that SVM outperformed MNB on longer form text so perhaps the character count increase means that tweets are now more similar to longer form text.
+SVM achieved the highest f1-score (Table ~\ref{Table:f1score}), with unigram and bigram TF-IDF again performing equally well. This indicates that SVM has a good balance of precision and recall and confirms the results of both \cite{Raithi2018} and \cite{Rane2018} who both found that SVM performed well in classifying tweets. It contradicts the results of \cite{Berm2010} who found that MNB performed better than SVM on tweets. In our experiments, SVM outperformed MNB in all metrics. This difference in results could be due to the increase in character count, from 140 to 280, introduced by Twitter in 2017. \cite{Berm2010} found that SVM outperformed MNB on longer form text so perhaps the character count increase means that tweets are now more similar to longer form text.
 
 \begin{table}[h!]
 \setlength{\tabcolsep}{3pt}
-\caption{Accuracy of Classifiers for different Feature Representations.}
+\caption{Accuracy of Classifiers and Feature Representations.}
 \label{Table:accuracy}
 \resizebox{\columnwidth}{!}{
 \begin{tabular}{cccccccc}
@@ -162,17 +167,17 @@ SVM achieved the highest f1-score (Table ~\ref{Table:f1score}), with unigram and
 \end{tabular}}
 \end{table}
 
-The classifier with the highest accuracy was SVM with an accuracy score of 0.744 (Table ~\ref{Table:accuracy}). This indicates it had the highest percentage of correct predictions.
+SVM also achieved the highest accuracy (Table ~\ref{Table:accuracy}). This means it had the highest percentage of correct predictions.
 
 Overall the best performing classifier was SVM. SVM has a good balance of precision and recall, achieving the highest f1-score, and also the highest accuracy score. A possible reason that SVM achieves the top performance is that SVM tends to be effective in high dimensional feature spaces and Twitter data produces a large feature set.
 
-The best performing approach was a combination of SVM and unigram TF-IDF. TF-IDF balances out how important a term is to a document compared with how important it is to the entire dataset. TF-IDF seems to perform particularly well in combination with SVM, significantly improving it's performance. However, TF-IDF does not conclusively improve tweet classification performance across all the classifiers. This may be due to the short length of the tweets. Short text is likely to have noisy TF-IDF values whereas the binary occurrence information obtained through plain BOW is more stable.
+The best performing approach was a combination of SVM and unigram TF-IDF. TF-IDF seems to perform particularly well in combination with SVM, significantly improving it's performance. However, TF-IDF does not conclusively improve tweet classification performance across all the classifiers. This may be due to the short length of the tweets. Short text is likely to have noisy TF-IDF values whereas the binary occurrence information obtained through plain BOW is more stable.
 
-N-grams did not improve the classification precision, accuracy, recall or f1-score. In most cases, it actually worsened the performance of the classifiers or had little or no effect. This agrees with the findings of \cite{Berm2010}. Neither Doc2Vec or Word2Vec achieved any better performance than BOW or TF-IDF. Word2Vec achieved better results in classifying the tweets than Doc2Vec. This could be because Word2Vec used Google's pretrained model whereas the Doc2Vec model was trained on our significantly smaller dataset of 3115 tweets. The unigram TF-IDF implementation with stop words included, performed better in nine out of the thirteen classifiers. This indicates that stop word removal did not improve classification performance. 
+Increasing the number of N-grams did not improve the classification precision, accuracy, recall or f1-score. This agrees with the findings of \cite{Berm2010}. Neither Doc2Vec or Word2Vec achieved any better performance than BOW or TF-IDF. Word2Vec achieved better results in classifying the tweets than Doc2Vec. This could be because Word2Vec used Google's pretrained model whereas the Doc2Vec model was trained on our small dataset of 3115 tweets. Finally, stop word removal did not improve classification performance.
 
 \subsection{Evaluation Metrics for Recommender Systems}
 \subsubsection{Leave-One-Out}
-The 'leave-one-out' approach involves removing one of a users n hotel bookings. Their remaining hotel bookings are used to generate the hotel recommendations. The removed booking is compared to the list of hotel recommendations to see where it ranked, the higher the better. 
+Leave-One-Out involves removing one of a users n hotel bookings. Their remaining hotel bookings are used to generate the hotel recommendations. The removed booking is compared to the ranked list of hotel recommendations to see where it ranked, the higher the better. 
 
 \subsubsection{Mean Percentile Rank}
 Mean Percentile Rank (MPR) is a recall-based measure. It measures the user satisfaction of items in an ordered list.
@@ -183,23 +188,20 @@ Mean Percentile Rank (MPR) is a recall-based measure. It measures the user satis
 $rank_{ui}$ is the percentile-ranking of hotel i within the ordered list of all hotels ranked for user u. $r_{ui}$ is a binary variable indicating whether user u booked hotel i.
 
 \subsubsection{User Data}
-The Ryanair booking data that was used to evaluate CoRE \cite{core2019} was used in our evaluation. The Ryanair dataset consists of 29,704 hotel bookings.
-
-This project focused on hotels in Dublin so the dataset had to be filtered so that it only contained users with multiple hotel bookings, one of which was in Dublin. Multiple hotel bookings are required for the 'leave-one-out' approach so that a booking can be removed while still leaving at least one booking to use for generating the recommendations. There were 27 users who had multiple hotel bookings with at least one hotel booking in a Dublin hotel. The Dublin hotel bookings were for 21 unique hotels. 
+The Ryanair booking data that was used to evaluate CoRE \cite{core2019} was used in our evaluation. The Ryanair dataset consists of 29,704 hotel bookings. This project focused on hotels in Dublin so the dataset had to be filtered so that it only contained users with multiple hotel bookings, one of which was in Dublin. Multiple hotel bookings are required for the 'leave-one-out' approach so that a booking can be removed while still leaving at least one booking to use for generating the recommendations. There were 27 users who had multiple hotel bookings with at least one hotel booking in a Dublin hotel. The Dublin hotel bookings were for 21 unique hotels. 
 
 \subsubsection{Baselines}
-
-In order to assess the performance of SentiCoRE (CoRE with the added sentiment information), it was compared against multiple baselines. These included: 
+In order to assess the performance of SentiCoRE (CoRE with the added sentiment information), it was evaluated against multiple baselines. These included: 
 \begin{itemize}
     \item Random: A randomly ranked list of hotels.
-    \item Expedia Baseline: The approach currently used by Ryanair in their rooms booking site. Hotels from the target city are sorted based on their transactional data from the last 30 days.
+    \item Expedia Baseline: The approach currently used by Ryanair in their rooms booking site. Hotels from the target city are sorted based on their transactional data taken from Expedia for the last 30 days.
     \item CoRE: The CoRE recommender system without the sentiment score added in.
-    \item SentiCoRE: The CoRE recommender system re-ranked with the sentiment scores produced by the Stanford NLP Sentiment Analyser.
+    \item SentiCoRE: The CoRE recommender system re-ranked with the sentiment scores.
 \end{itemize}
 
 \subsection{Recommender Results and Analysis}
 
-The results show that the addition of the sentiment score increases the MPR of CoRE, with and without feature weighting (Table ~\ref{Table:senticore}), which means the hotels are being ranked lower by SentiCoRE than CoRE. You can see that incorporating the sentiment scores into the CoRE recommender definitely has an impact on the hotel rankings. A positive sentiment score will move a hotel up the list while a negative ranking will move a hotel down the list. Taking only the MPR into account you would say that SentiCoRE is not performing as well as CoRE. However, SentiCoRE is having the desired effect and is adjusting the hotel rankings based on the sentiment scores.
+The results show that the addition of the sentiment score increases the MPR of CoRE, with and without feature weighting (Table ~\ref{Table:senticore}). This means the hotels are being ranked lower by SentiCoRE than CoRE. You can see that incorporating the sentiment scores into the CoRE recommender definitely has an impact on the hotel rankings. A positive sentiment score will move a hotel up the list while a negative ranking will move a hotel down the list. Taking only the MPR into account you would say that SentiCoRE is not performing as well as CoRE. However, SentiCoRE is having the desired effect and is adjusting the hotel rankings based on the sentiment scores. Both CoRE and SentiCoRE performed significantly better than the Random and Expedia baselines.
 
 \begin{table}[h!]
 \caption{Recommender Systems Performance.}
@@ -219,7 +221,5 @@ SentiCoRE (with feature weighting) & 14.68 \\ \hline
 SentiCoRE (without feature weighting) & 9.92 \\ \hline
 \end{tabular}}
 \end{table}
-
-CoRE is the best performing recommender in terms of MPR, achieving a MPR of 2.51\%. CoRE performs slightly better with feature weighting than without feature weighting as was seen in the evaluation of CoRE by itself \cite{core2019}. The Random Recommender which produces a random list of hotels performed the worst, which was expected. Typically a MPR of 50\% would be expected for a random list of hotels which is not far off the Random Recommender's MPR of 42.72\%. The Expedia Recommender only performed slightly better than the Random Recommender with a MPR of 40.87. Both CoRE and SentiCoRE performed significantly better than the Random and Expedia baselines.
 
 The small number of users that the evaluation was performed on needs to be taken into consideration. Our results would hold more weight if the system were reevaluated on a larger dataset. This is an area for future work.
