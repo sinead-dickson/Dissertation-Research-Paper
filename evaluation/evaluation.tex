@@ -99,7 +99,7 @@ In terms of precision, QDA with unigram TF-IDF (no stop words) performed best (T
 \end{tabular}}
 \end{table}
 
-SVM was performed best with regard to recall (Table ~\ref{Table:recall}), with unigram TF-IDF and bigram TF-IDF performing equally well. This again partly agrees with \cite{Rane2018}, who found that SVM was their second best performing classifier in terms of recall, with RF again coming out on top. Notice that QDA which performed the best in precision performs pretty poorly in terms of recall. This is a common issue and is why we have also evaluated the classifiers with f1-score, which conveys the balance between precision and recall.
+SVM performed best with regard to recall (Table ~\ref{Table:recall}), with unigram TF-IDF and bigram TF-IDF performing equally well. This again partly agrees with \cite{Rane2018}, who found that SVM was their second best performing classifier in terms of recall, with RF again coming out on top. Notice that QDA which performed the best in precision performs pretty poorly in terms of recall. This is a common issue and is why we have also evaluated the classifiers with f1-score, which conveys the balance between precision and recall.
 
 \begin{table}[h!]
 \setlength{\tabcolsep}{3pt}
@@ -133,7 +133,7 @@ SVM was performed best with regard to recall (Table ~\ref{Table:recall}), with u
 \end{tabular}}
 \end{table}
 
-SVM achieved the highest f1-score (Table ~\ref{Table:f1score}), with unigram and bigram TF-IDF again performing equally well. This indicates that SVM has a good balance of precision and recall and confirms the results of both \cite{Raithi2018} and \cite{Rane2018} who both found that SVM performed well in classifying tweets. It contradicts the results of \cite{Berm2010} who found that MNB performed better than SVM on tweets. In our experiments, SVM outperformed MNB in all metrics. This difference in results could be due to the increase in character count, from 140 to 280, introduced by Twitter in 2017. \cite{Berm2010} found that SVM outperformed MNB on longer form text so perhaps the character count increase means that tweets are now more similar to longer form text.
+SVM achieved the highest f1-score (Table ~\ref{Table:f1score}), with unigram and bigram TF-IDF again performing equally well. This indicates that SVM has a good balance of precision and recall and confirms the results of both \cite{Raithi2018} and \cite{Rane2018} who both found that SVM performed well in classifying tweets. It contradicts the results of \cite{Berm2010} who found that MNB performed better than SVM on tweets. In our experiments, SVM outperformed MNB in all metrics. This difference in results could be due to the increase in character count, from 140 to 280, introduced by Twitter in 2017. \cite{Berm2010} found that SVM outperformed MNB on long form text so perhaps the character count increase means that tweets are now more similar to long form text.
 
 \begin{table}[h!]
 \setlength{\tabcolsep}{3pt}
@@ -169,9 +169,9 @@ SVM achieved the highest f1-score (Table ~\ref{Table:f1score}), with unigram and
 
 SVM also achieved the highest accuracy (Table ~\ref{Table:accuracy}). This means it had the highest percentage of correct predictions.
 
-Overall the best performing classifier was SVM. SVM has a good balance of precision and recall, achieving the highest f1-score, and also the highest accuracy score. A possible reason that SVM achieves the top performance is that SVM tends to be effective in high dimensional feature spaces and Twitter data produces a large feature set.
+Overall the best performing classifier was SVM. SVM has a good balance of precision and recall, achieving the highest f1-score, and also the highest accuracy score. A possible reason that SVM achieved the top performance is that SVM tends to be effective in high dimensional feature spaces and Twitter data produces a large feature set.
 
-The best performing approach was a combination of SVM and unigram TF-IDF. TF-IDF seems to perform particularly well in combination with SVM, significantly improving it's performance. However, TF-IDF does not conclusively improve tweet classification performance across all the classifiers. This may be due to the short length of the tweets. Short text is likely to have noisy TF-IDF values whereas the binary occurrence information obtained through plain BOW is more stable.
+The best performing approach was a combination of SVM and unigram TF-IDF. TF-IDF seems to perform particularly well in combination with SVM, significantly improving its performance. However, TF-IDF does not conclusively improve tweet classification performance across all the classifiers. This may be due to the short length of the tweets. Short text is likely to have noisy TF-IDF values whereas the binary occurrence information obtained through plain BOW is more stable.
 
 Increasing the number of N-grams did not improve the classification precision, accuracy, recall or f1-score. This agrees with the findings of \cite{Berm2010}. Neither Doc2Vec or Word2Vec achieved any better performance than BOW or TF-IDF. Word2Vec achieved better results in classifying the tweets than Doc2Vec. This could be because Word2Vec used Google's pretrained model whereas the Doc2Vec model was trained on our small dataset of 3115 tweets. Finally, stop word removal did not improve classification performance.
 
